@@ -1,0 +1,115 @@
+```plantuml
+@startuml
+!define datatype(x) class x << (D,#FF7700) DataType>>
+
+abstract class utilisateur {
+    nom : varchar
+    prenom : varchar
+    tel : varchar
+    date_creation : date
+    statut : booleen
+}
+
+class groups {
+    groupsUid : varchar
+    groupName : varchar
+}
+
+class userOrg {
+    orgUid : int
+}
+
+class identifiants {
+email : varchar
+mot_de_passe : varchar 
+}
+
+class organisation {
+    siren : int {key}
+    nom : varchar
+    type : type_org
+    siege : adresse
+}
+enum type_org {
+    EI
+    EURL
+    SARL
+    SASU
+    SAS
+    SA
+    SNC
+    SCS
+    SCA
+}
+
+enum positions_type {
+    BROUILLON
+    DEPOSÉ
+    ACCEPTÉ
+    REFUSÉ
+    MODIFIÉ
+}
+
+datatype(adresse){
+    num_adresse : int
+    rue : varchar
+    code_postale : int
+    ville : varchar
+    pays : varchar
+}
+
+class offre {
+    etat : etat_offre
+    date_validite : date
+    pieces_demandees : Text
+    nb_pieces_demande : int
+}
+
+enum etat_offre {
+    non publiée
+    publiée
+    expirée
+}
+
+class fiche_poste {
+    intitule : text
+    statut_poste : varchar
+    responsable : varchar
+    type_metier : varchar
+    lieu_mission : adresse
+    rythme : varchar
+}
+
+class gestionOffre {
+    ajout()
+    suppression()
+    modification()
+}
+
+class candidature {
+    candidatureDate : date
+    status : positions_type
+}
+
+class documentsCandidature {
+    documentName : varchar
+    documentPath : varchar
+}
+
+identifiants *-- "1" utilisateur
+groups "1..n" -- "1" utilisateur
+
+documentsCandidature "1..n" --*  candidature
+(utilisateur, offre) . candidature
+
+organisation "0..1" --  utilisateur
+
+offre *-- "1" fiche_poste
+offre "0..n" -- "1" organisation
+(organisation, offre) . gestionOffre
+
+(organisation, utilisateur) . userOrg
+
+@enduml
+
+```
