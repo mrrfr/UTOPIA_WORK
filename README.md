@@ -22,10 +22,16 @@ Le code source du projet est disponible dans <br>"0.1 - PLATEFORME_RECRUTEMENT" 
 
 ## Modélisation du projet 
 
-<div style="text-align: center"><h2> Diagramme de cas d'utilisation </h2></div>
+<div style="text-align: center"><h2> Diagramme de cas d'utilisation</h2></div>
 
 <div style="display :flex; align-items : center; justify-content: center">
-<p style="font-weight: bold">Le diagramme de cas d'utilisation se trouve dans <a href="/res/diag-cas-utilisation.pdf" target="_blank">res/diag-cas-utilisation.pdf</a></p>
+<img src="res/diag_use_case.png">
+</div>
+
+<div style="text-align: center"><h2> Wireframe </h2></div>
+
+<div style="display :flex; align-items : center; justify-content: center">
+<p style="font-weight: bold">Le diagramme de cas d'utilisation se trouve dans <a href="/res/wireframe.pdf" target="_blank">res/diag-cas-utilisation.pdf</a></p>
 </div>
 
 <div style="text-align: center"><h2> Modélisation UML du Projet </h2></div>
