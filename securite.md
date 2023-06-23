@@ -6,11 +6,11 @@
 
 # Rapport sur la sécurité :
 
-Nous avons traité la sécurité de notre application en deux parties : la sécurité de l'application et la sécurité des utilisateurs.
+J'ai traité la sécurité de notre application en deux parties : la sécurité de l'application et la sécurité des utilisateurs.
 
-Il est impensable de penser qu'en 2023 une application web ne soit pas vulnérable. Toute base de données a des chances ne serait-ce qu'infime de se faire attaquer. C'est pourquoi nous avons mis en place des mesures de sécurité pour protéger les données de nos utilisateurs.
+Il est impensable de penser qu'en 2023 une application web ne soit pas vulnérable. Toute base de données a des chances ne serait-ce qu'infime de se faire attaquer. C'est pourquoi j'ai mis en place des mesures de sécurité pour protéger les données de nos utilisateurs.
 
-Il est important de noter nous sommes dans un cadre pédagoqiue, nous nous sommes alors seulement concentrées sur 3 vulnérabilités, nous n'avons pas traité les failles XSS, CSRF, etc...
+Il est important de noter nous sommes dans un cadre pédagoqiue, Je me suis alors seulement concentrées sur 3 vulnérabilités, je n'ai pas traité les failles XSS, CSRF, etc...
 
 Les vulnérabilités qui m'ont semblé importante et que j'ai traité sont les suivantes :
 <ul>
@@ -20,7 +20,7 @@ Les vulnérabilités qui m'ont semblé importante et que j'ai traité sont les s
 </ul>
 
 ## 1. Sécurité des données utilisateurs - Cryptographie des données sensibles : 
-Notre application ne traite pas des données à caractére sensibles hormis les mots de passe, c'est pourquoi nous avons crypté les mots de passe via la libraire crypto en utilisant un algorithme de cryptage réputé inviolable pour l'instant : l'algorithme AES-256-GCM. Nous avons également ajouté un sel pour renforcer la sécurité.
+Notre application ne traite pas des données à caractére sensibles hormis les mots de passe, c'est pourquoi j'ai crypté les mots de passe via la libraire crypto en utilisant un algorithme de cryptage réputé inviolable pour l'instant : l'algorithme AES-256-GCM. Nous avons également ajouté un sel pour renforcer la sécurité.
 
 ### Exemples de codes :
 ```javascript
