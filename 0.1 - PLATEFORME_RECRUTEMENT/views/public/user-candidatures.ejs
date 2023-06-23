@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel='stylesheet' href='/stylesheets/sidebar.css' />
+    <link rel='stylesheet' href='/stylesheets/tabs.css' />
+
+    <script src="/js/libs/jquery.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+    <script src="/js/libs/swal.js"></script>
+    <script src="/js/candidature/user-candidatures.js"></script>
+</head>
+<body>
+<%- include('../sidebar/sidebar', {user: user}); %>
+<main>
+    <h1>GESTION DE MES CANDIDATURES</h1>
+    <div class="row" style="display: flex; justify-content: center; align-items: center; margin: 20px">
+        <div class="col-3">
+            <button onclick="filter_table('BROUILLON')" style="width: 100%" class="btn btn-warning">MES CANDIDATURES EN BROUILLON</button>
+        </div>
+        <div class="col-3">
+            <button onclick="filter_table('ENVOYÉE')" style="width: 100%" class="btn btn-primary">MES CANDIDATURES EN ATTENTE</button>
+        </div>
+        <div class="col-3">
+            <button onclick="filter_table('ACCEPTÉE')" style="width: 100%" class="btn btn-success">MES CANDIDATURES ACCEPTÉES</button>
+        </div>
+        <div class="col-3">
+            <button onclick="filter_table('REFUSÉE')" style="width: 100%" class="btn btn-danger">MES CANDIDATURES REFUSÉES</button>
+        </div>
+    </div>
+    <div class="row" style="display: flex; justify-content: center; align-items: center; margin: 20px">
+        <button onclick="filter_table('')" style="width: 100%" class="btn btn-secondary">TOUTES LES CANDIDATURES</button>
+    </div>
+    <div class="container">
+        <div class="row">
+            <table id="user_candidatures" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                <tr>
+                    <th>candidature id</th>
+                    <th>offre id</th>
+                    <th>Nom de l'organisation</th>
+                    <th>Intitulé de la mission</th>
+                    <th>Type du métier</th>
+                    <th>Adresse de la mission</th>
+                    <th>Salaire</th>
+                    <th>Rythme</th>
+                    <th>Status de ma candidature</th>
+                    <th>Status de ma candidature n</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+        <p class="copyright">
+            &copy; 2023 - <span>SR10 - D.R</span> License <a href="https://github.com/DISIC/design.numerique.gouv.fr/blob/master/LICENSE.md#licence-ouverte-20open-licence-20" target="_blank">OPEN LICENCE 2.0</a>.
+        </p>
+    </div>
+</main>
+</body>
+</html>

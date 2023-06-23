@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel='stylesheet' href='/stylesheets/sidebar.css'/>
+    <link rel='stylesheet' href='/stylesheets/organisation/creation.css'/>
+    <script src="/js/libs/jquery.js"></script>
+    <script src="/js/libs/swal.js"></script>
+    <script src="/js/organisation/creation.js"></script>
+</head>
+<body>
+<%- include('../sidebar/sidebar', {user: user}); %>
+<main>
+    <% if(!does_user_have_org) { %>
+        <div class="row" style="display: flex; align-items: center; justify-content: center">
+            <h2 style="text-align: center; margin-top: 10vh;">Cliquez ici pour rejoindre une organisation existante</h2>
+            <button onclick="join_organisation()" class="btn btn-primary"
+                    style="margin-top: 3vh; margin-bottom: 10vh; width: 80%">Rejoindre une organisation existante
+            </button>
+        </div>
+        <hr class="hr"/>
+    <div class="container contact-form">
+        <div class="contact-image">
+            <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
+        </div>
+        <form method="post">
+            <h3>Créer mon organisation</h3>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label class="indice" for="nom">Nom de mon organisation</label>
+                        <input type="text" id="nom" name="txtName" class="form-control" required
+                               placeholder="Nom de votre organisation *" value=""/>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <label class="indice" for="type">Type de mon organisation</label>
+                    <select id="type" required style="width: 100%">
+                        <%
+                        for ( let i = 0; i < organisations_types.length; i++ )
+                        {
+                        %>
+                        <option value="<%= organisations_types[ i ].type_uid %>"><%= organisations_types[ i ].type_name %></option>
+                        <%
+                        }
+                        %>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <label class="indice" for="siren">Identifiant de mon organisation</label>
+                <div class="form-group">
+                    <input type="text" id="siren" name="siren" class="form-control" required
+                           placeholder="SIREN (Ou RNA Si association) *" value=""/>
+                </div>
+            </div>
+            <div class="row">
+                <label class="indice" for="siege">Adresse de mon organisation</label>
+                <div class="form-group">
+                    <input type="text" id="siege" name="siege" class="form-control" required
+                           placeholder="L'adresse de votre siège social *" value=""/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <input type="submit" name="btnSubmit" class="btnContact" value="Créer mon organisation"/>
+                </div>
+            </div>
+        </form>
+        <% } else { %>
+            <% if(user_status === "REFUSÉE") { %>
+                <div class="row">
+                    <button onclick="restart_org()" id="btnSubmitRest" class="btn btn-danger">Recommencer une nouvelle
+                        tentative
+                    </button>
+                </div>
+            <% } %>
+        <div class="container contact-form">
+            <div class="contact-image">
+                <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
+            </div>
+            <!--user_organisation-->
+            <form method="post">
+                <h3>État de ma demande pour mon organisation</h3>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="indice" for="nom">Nom de mon organisation
+                                <% user_organisation['nom'] %>
+                            </label>
+                            <input disabled type="text" id="nom" name="txtName" class="form-control" required
+                                   value="<%= user_organisation['nom'] %>"/>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label class="indice" for="type">Type de mon organisation</label>
+                        <input disabled type="text" id="type" name="type" class="form-control" required
+                               value="<%= user_organisation['type_name'] %>"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="indice" for="siren">Identifiant de mon organisation</label>
+                    <div class="form-group">
+                        <input disabled type="text" id="siren" name="siren" class="form-control" required
+                               value="<%= user_organisation['siren'] %>"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="indice" for="siege">Adresse de mon organisation</label>
+                    <div class="form-group">
+                        <input disabled type="text" id="siege" name="siege" class="form-control" required
+                               placeholder="L'adresse de votre siège social *"
+                               value="<%= user_organisation['siege'] %>"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <input disabled type="submit" name="btnSubmit" class="btnContact" value="<%= user_status %>"/>
+                    </div>
+                </div>
+            </form>
+            <% } %>
+        </div>
+        <p class="copyright">
+            &copy; 2023 - <span>SR10 - D.R</span> License <a
+                    href="https://github.com/DISIC/design.numerique.gouv.fr/blob/master/LICENSE.md#licence-ouverte-20open-licence-20"
+                    target="_blank">OPEN LICENCE 2.0</a>.
+        </p>
+    </div>
+</main>
+</body>
+</html>

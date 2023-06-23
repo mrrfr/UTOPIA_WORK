@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UT'OPIA - WORK | AUTHENTIFICATION</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/auth/auth.css' />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <script src="/js/libs/jquery.js"></script>
+    <script src="/js/libs/swal.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link rel='stylesheet' href="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css"></link>
+    <script src="/js/authentification/register.js"></script>
+</head>
+<body class="background-color-grey">
+<section class="h-100 gradient-form">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+                <div class="card rounded-3 text-black">
+                    <div class="row g-0">
+                        <div class="col-lg-6">
+                            <div class="card-body p-md-5 mx-md-4">
+
+                                <div class="text-center">
+                                    <img src="/res/utc.svg"
+                                         style="width: 185px;" alt="logo">
+                                    <h4 class="mt-1 mb-5 pb-1">UT'OPIA - WORK</h4>
+                                </div>
+
+                                <form method="post">
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label indice" for="nom_famille">Nom de famille</label>
+                                        <input type="text" name="nom_famille" id="nom_famille" class="form-control"
+                                               placeholder="Nom de famille" value="Test"/>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label indice" for="prenom">Prénom(s)</label>
+                                        <input type="text" name="prenom" id="prenom" class="form-control"
+                                               placeholder="Prénom" value="Test"/>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label indice" for="numero_telephone">N° de téléphone (+33)</label>
+                                        <input type="text" name="numero_telephone" id="numero_telephone" class="form-control"
+                                               placeholder="N° de téléphone (+33)" value="06 06 06 06 06"/>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label indice" for="email">Adresse e-mail</label>
+                                        <input type="email" name="email"  id="email" class="form-control"
+                                               placeholder="Adresse e-mail" value="test@demo.fr"/>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label indice" for="password">Mot de passe</label>
+                                        <input type="password" name="password" id="password" class="form-control"
+                                               placeholder = "Mot de passe" value="password"/>
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <label class="form-label indice" for="cpassword">Confrimer votre mot de passe</label>
+                                        <input type="password" name="cpassword" id="cpassword" class="form-control"
+                                               placeholder = "Mot de passe" value="password"/>
+                                    </div>
+
+                                    <div class="text-center pt-1">
+                                        <button onclick="" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 btn-connexion">Inscrivez-vous</button>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-6 ">
+                            <div class="row">
+                                <div class="text-black px-3 py-4 p-md-5 mx-md-4">
+                                    <h3 class="mb-4">Nous sommes plus qu'une simple plateforme de recrutement !</h3>
+                                    <h5 class="mb-4 indice-italique">Découvrez qui sommes-nous vraiment :</h5>
+                                    <p class="small mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
+                            </div>
+                            <div class="row" style="height: 30vh">
+                                <lottie-player
+                                        src="/lottie/login.json"
+                                        background="transparent"
+                                        speed="1"
+                                        loop autoplay>
+                                </lottie-player>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center pb-4">
+                                <p class="mb-0 me-2">Vous avez un compte?</p>
+                                <a href="http://localhost:3000/authentification/connexion">
+                                    <button type="button" class="btn btn-outline-danger">Connectez-vous!</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

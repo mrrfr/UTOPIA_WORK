@@ -1,0 +1,20 @@
+
+@import url('https://fonts.googleapis.com/css?family=Inter&display=swap');
+
+
+*{
+    font-family: 'Inter';
+}
+
+.sign {
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    flex: 1 1 0%;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    width: 100%;
+     
+}

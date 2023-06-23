@@ -1,0 +1,10 @@
+@font-face {
+  font-family: Poppins-Bold, Poppins;
+  src: url("https://fonts.google.com/download?family=Poppins")
+}
+
+.centerd-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

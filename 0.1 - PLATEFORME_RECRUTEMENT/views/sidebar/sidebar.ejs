@@ -1,0 +1,175 @@
+<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<link rel='stylesheet' href='/stylesheets/sidebar.css' />
+<script src="/js/sidebar/sidebar.js"></script>
+<script src="/js/libs/jquery.js"></script>
+<script src="/js/libs/swal.js"></script>
+
+<script src="https://kit.fontawesome.com/1b9543fe55.js" crossorigin="anonymous"></script>
+
+
+
+<nav>
+    <div class="sidebar-top">
+      <span id="shrink" class="shrink-btn">
+        <i class='bx bx-chevron-left'></i>
+      </span>
+        <img src="/res/sigle-utc.png" class="logo-utc" alt="">
+        <h3 class="hide">UT'OPITA</h3>
+    </div>
+
+    <div class="sidebar-links">
+        <ul>
+            <div class="active-tab"></div>
+            <li class="tooltip-element" data-tooltip="0">
+                <a href="/" class="active" data-active="0">
+                    <div class="icon">
+                        <i class='bx bx-tachometer'></i>
+                        <i class='bx bxs-tachometer'></i>
+                    </div>
+                    <span class="link hide">Tableau de board</span>
+                </a>
+            </li>
+            <li class="tooltip-element" data-tooltip="1">
+                <a href="/offres/" data-active="1">
+                    <div class="icon">
+                        <i class='bx bx-briefcase' ></i>
+                        <i class='bx bxs-briefcase' ></i>
+                    </div>
+                    <span class="link hide">Les offres d'emploi</span>
+                </a>
+            </li>
+            <div class="tooltip">
+                <span class="show">Tableau de board</span>
+                <span>Les offres d'emploi disponible</span>
+            </div>
+        </ul>
+
+        <% if (user.group_uid === 1) { %>
+            <!--UTILISATEUR-->
+
+            <h4 class="hide">Mon portefeuille</h4>
+            <ul>
+                <li class="tooltip-element" data-tooltip="0">
+                    <a href="/offres/mes-candidatures" data-active="2">
+                        <div class="icon">
+                            <i class='bx bx-folder'></i>
+                            <i class='bx bxs-folder'></i>
+                        </div>
+                        <span class="link hide">Mes candidatures</span>
+                    </a>
+                </li>
+                <li class="tooltip-element" data-tooltip="1">
+                    <a href="/organisations/" data-active="3">
+                        <div class="icon">
+                            <i class='bx bx-plus-circle' ></i>
+                            <i class='bx bxs-plus-circle' ></i>
+                        </div>
+                        <span class="link hide">Créer mon organisation</span>
+                    </a>
+                </li>
+                <div class="tooltip">
+                    <span class="show">Mes candidatures</span>
+                    <span>Créer mon organisation</span>
+                </div>
+            </ul>
+
+        <% } %>
+
+        <% if (user.group_uid === 2) { %>
+            <!--RECRUTEUR-->
+
+            <h4 class="hide" style="font-size: 0.80rem">Gestion de l'organisation</h4>
+
+            <ul>
+                <li class="tooltip-element" data-tooltip="0">
+                    <a href="/organisations/members" data-active="2">
+                        <div class="icon">
+                            <i class='bx bx-user-check'></i>
+                            <i class='bx bxs-user-check'></i>
+                        </div>
+                        <span class="link hide">Gestion des recruteurs</span>
+                    </a>
+                </li>
+                <li class="tooltip-element" data-tooltip="1">
+                    <a href="/organisations/candidatures" data-active="3">
+                        <div class="icon">
+                            <i class='bx bx-folder'></i>
+                            <i class='bx bxs-folder'></i>
+                        </div>
+                        <span class="link hide">Gestion des candidatures</span>
+                    </a>
+                </li>
+                <li class="tooltip-element" data-tooltip="2">
+                    <a href="/organisations/offers" data-active="4">
+                        <div class="icon">
+                            <i class='bx bx-briefcase'></i>
+                            <i class='bx bxs-briefcase'></i>
+                        </div>
+                        <span class="link hide">Gestion des offres</span>
+                    </a>
+                </li>
+                <div class="tooltip">
+                    <span class="show">Gestion des utilisateurs</span>
+                    <span>Gestion des candidatures</span>
+                    <span>Gestion des offres</span>
+                </div>
+            </ul>
+
+        <% } %>
+        <% if (user.group_uid === 3) { %>
+            <!--ADMINISTRATEUR-->
+
+            <h4 class="hide" style="font-size: 0.75rem">Gestion de la plateforme</h4>
+
+            <ul>
+                <li class="tooltip-element" data-tooltip="0">
+                    <a href="/administration/users" data-active="2">
+                        <div class="icon">
+                            <i class='bx bx-user-check'></i>
+                            <i class='bx bxs-user-check'></i>
+                        </div>
+                        <span class="link hide">Gestion des utilisateurs</span>
+                    </a>
+                </li>
+                <li class="tooltip-element" data-tooltip="1">
+                    <a href="/administration/organisations" data-active="3">
+                        <div class="icon">
+                            <i class='bx bx-notepad'></i>
+                            <i class='bx bxs-notepad'></i>
+                        </div>
+                        <span class="link hide">Gestion des organisations</span>
+                    </a>
+                </li>
+                <div class="tooltip">
+                    <span class="show">Gestion des utilisateurs</span>
+                    <span>Gestion des organisations</span>
+                </div>
+            </ul>
+        <% } %>
+    </div>
+
+    <div class="sidebar-footer">
+        <a href="#" class="account tooltip-element" data-tooltip="0">
+            <i class='bx bx-user'></i>
+        </a>
+        <div class="admin-user tooltip-element" data-tooltip="1">
+            <div class="admin-profile hide">
+                <div class="admin-info">
+                    <h3><%= user.prenom %> <%= user.nom %></h3>
+                    <h5><%= user.group_name %></h5>
+                </div>
+            </div>
+            <span id="logout" class="log-out">
+                <i class='bx bx-log-out'></i>
+            </span>
+        </div>
+        <div class="tooltip">
+            <span class="show"> <%= user.nom %> <%= user.prenom %> / Compte de type : <%= user.group_name %></span>
+            <span> Se déconnecter</span>
+        </div>
+        <span style="text-align: center">
+            <p style="font-size: 0.8rem; margin-top: 4vh; color: darkgrey">< / > avec <i class="fa-solid fa-heart fa-beat" style="color: #d04e4e; size: 1rem; margin-left: 5px; margin-right: 5px"></i> Par <a href="https://github.com/RayanDoudech", target="_blank" style="color: darkred">DOUDECH Taïeb Rayen</a> dans le cadre de l'UV SR10 en P23</p>
+        </span>
+    </div>
+</nav>

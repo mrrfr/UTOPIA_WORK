@@ -1,0 +1,74 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Poppins;
+}
+
+.lottie-player {
+    width: 30vw;
+    margin-top: 10vh;
+}
+
+.error-header {
+    font-size: 80px;
+    line-height: 1.2;
+    color: #403866;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    display: block;
+    font-weight: 700;
+}
+.error-subheader {
+    font-size: 17px;
+    color: #403866;
+    text-transform: uppercase;
+    text-align: center;
+    width: 100%;
+    display: block;
+    font-weight: 700;
+}
+.error-subheader2 {
+    font-size: 12px;
+    color: #919192;
+    text-align: center;
+    width: 100%;
+    display: block;
+    font-weight: 500;
+}
+
+.btn-primary {
+    background-color: #00bcd4 !important;
+    color: #fff !important;
+    border-color: #00bcd4 !important;
+}
+
+.btn-primary:hover {
+    background-color: #00bcd4 !important;
+    color: #fff !important;
+}
+
+.auth-form-btn {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50px !important;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn-primary:active {
+    background-color: #00bcd4 !important;
+    color: #fff !important;
+}
+.btn-primary:focus {
+    background-color: #00bcd4 !important;
+    color: #fff !important;
+}
+
+.btn-primary:disabled {
+    background-color: #00bcd4 !important;
+    color: #fff !important;
+}
+

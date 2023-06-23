@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel='stylesheet' href='/stylesheets/sidebar.css' />
+    <link rel='stylesheet' href='/stylesheets/organisation/offre-creation.css' />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="/js/libs/jquery.js"></script>
+    <script src="/js/libs/swal.js"></script>
+    <script src="/js/organisation/offre-creation.js"></script>
+</head>
+<body>
+<%- include('../sidebar/sidebar', {user: user}); %>
+<main>
+    <div class="container">
+        <div class="card">
+            <% if (creation) {%>
+                    <div class="form" >
+                    <form class="form" action="" id="offre_creation_form">
+                        <div class="left-side">
+                            <div class="left-heading">
+                                <h3>UT'OPIA - Org</h3>
+                            </div>
+                            <div class="steps-content">
+                                <h3>Étape <span class="step-number">1</span></h3>
+                                <p class="step-number-content active">Informations générale relative à votre offre.</p>
+                                <p class="step-number-content d-none">Localisation de la mission.</p>
+                                <p class="step-number-content d-none">Aidez les candidats à s'immerger dans leurs nouvelles experience de travail.</p>
+                                <!--<p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>-->
+                            </div>
+                            <ul class="progress-bar">
+                                <li class="active">Informations générales</li>
+                                <li>Localisation</li>
+                                <li>Experience de travail</li>
+                                <!--<li>User Photo</li>-->
+                            </ul>
+
+
+
+                        </div>
+                        <div class="right-side">
+                            <div class="main active">
+                                <small><i class="fa fa-smile-o"></i></small>
+                                <div class="text">
+                                    <h2>Informations générale relative à votre offre.</h2>
+                                    <p>Entrez ici les informations générale relative à vore offre.</p>
+                                </div>
+                                <div class="input-text">
+                                    <div class="input-div">
+                                        <input type="text" required require id="intitule" name="intitule" value="Ingénieur en chef">
+                                        <span>Intitulé du poste</span>
+                                    </div>
+                                    <div class="input-div">
+                                        <input type="text" require required id="status_poste" name="status_poste" value="Cadre (CDI)">
+                                        <span>Status du poste</span>
+                                    </div>
+                                </div>
+                                <div class="input-text">
+                                    <div class="input-div">
+                                        <input type="text" require id="type" name="type" required value="Cybérsécurité">
+                                        <span>Type du métier </span>
+                                    </div>
+                                    <div class="input-div">
+                                        <input type="text" require required id="rythme" name="rythme" require value="35H">
+                                        <span>Rythme de la mission</span>
+                                    </div>
+                                </div>
+                                <div class="buttons">
+                                    <button class="next_button" style="width: 30%">Étape suivante</button>
+                                </div>
+                            </div>
+                            <div class="main">
+                                <small><i class="fa fa-smile-o"></i></small>
+                                <div class="text">
+                                    <h2>Localisation</h2>
+                                    <p>Localisation de la mission.</p>
+                                </div>
+                                <div id="map"></div>
+                                <input type="hidden" name="loc_lat" id="loc_lat" value="48.85368">
+                                <input type="hidden" name="loc_long" id="loc_long" value="2.349220">
+
+                                <!-- prettier-ignore -->
+                                <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+                                    ({key: "AIzaSyCMy-hj1vTMWe303mkUGIY9bnapDW3nsr0", v: "beta"});</script>
+                                <div class="buttons button_space">
+                                    <button class="back_button" style="width: 30%">Retour en arrière</button>
+                                    <button class="next_button" style="width: 30%">Étape suivante</button>
+                                </div>
+                            </div>
+                            <div class="main">
+                                <small><i class="fa fa-smile-o"></i></small>
+                                <div class="text">
+                                    <h2>Informations relatives à l'offre de travail</h2>
+                                    <p>Donner nous des informations spécifiques relatives à l'offre?</p>
+                                </div>
+                                <div class="input-text">
+                                    <div class="input-div">
+                                        <input type="text" require id="responsable" name="responsable" value="Bruno">
+                                        <span>Responsable hiérarchique</span>
+                                    </div>
+                                </div>
+                                <div class="input-text">
+                                    <div class="input-div">
+                                        <input type="text" require id="piece" name="piece" value="CV + Lettre de motivation">
+                                        <span>Pièces demandées (Ex: CV + Lettre de motivation ..)</span>
+                                    </div>
+                                </div>
+                                <div class="input-text">
+                                    <div class="input-div">
+                                        <input type="text" require id="salaire" name="salaire" value="40 000">
+                                        <span>Salaire Annuelle BRUT en €(Ex: 35 000)</span>
+                                    </div>
+                                </div>
+
+                                <div class="input-text">
+                                    <div class="input-div">
+                                        <input type="date" require placeholder="dd-mm-yyyy" value="2024-01-01"
+                                               min="2020-01-01" max="2030-12-31" name="date" id="date">
+                                        <span>Date de validité (JJ/MM/AAAA)</span>
+                                    </div>
+                                    <div class="input-div">
+                                        <input type="number" require name="nb_pieces" id="nb_pieces" value="2">
+                                        <span>Nombre de pièces demandées :</span>
+                                    </div>
+                                </div>
+
+                                <div class="buttons button_space">
+                                    <button class="back_button" style="width: 30%">Retour en arrière</button>
+                                    <button class="submit_button" style="width: 30%">Créer mon offre</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            <% } else { %>
+                    <div class="form" >
+                        <form class="form" action="" id="offre_creation_form">
+                            <div class="left-side">
+                                <div class="left-heading">
+                                    <h3>UT'OPIA - Org</h3>
+                                </div>
+                                <div class="steps-content">
+                                    <h3>Étape <span class="step-number">1</span></h3>
+                                    <p class="step-number-content active">Informations générale relative à votre offre.</p>
+                                    <p class="step-number-content d-none">Localisation de la mission.</p>
+                                    <p class="step-number-content d-none">Aidez les candidats à s'immerger dans leurs nouvelles experience de travail.</p>
+                                    <!--<p class="step-number-content d-none">Add your profile piccture and let companies find youy fast.</p>-->
+                                </div>
+                                <ul class="progress-bar">
+                                    <li class="active">Informations générales</li>
+                                    <li>Localisation</li>
+                                    <li>Experience de travail</li>
+                                    <!--<li>User Photo</li>-->
+                                </ul>
+
+
+
+                            </div>
+                            <div class="right-side">
+                                <div class="main active">
+                                    <small><i class="fa fa-smile-o"></i></small>
+                                    <div class="text">
+                                        <h2>Informations générale relative à votre offre.</h2>
+                                        <p>Entrez ici les informations générale relative à vore offre.</p>
+                                    </div>
+                                    <input type="number" hidden required require id="id_offre" name="id_offre" value="<%=offre.offre_uid%>">
+                                    <div class="input-text">
+                                        <div class="input-div">
+                                            <input type="text" required require id="intitule" name="intitule" value="<%=offre.intitule%>">
+                                            <span>Intitulé du poste</span>
+                                        </div>
+                                        <div class="input-div">
+                                            <input type="text" require required id="status_poste" name="status_poste" value="<%=offre.status_poste%>">
+                                            <span>Status du poste</span>
+                                        </div>
+                                    </div>
+                                    <div class="input-text">
+                                        <div class="input-div">
+                                            <input type="text" require id="type" name="type" required value="<%=offre.type_metier%>">
+                                            <span>Type du métier </span>
+                                        </div>
+                                        <div class="input-div">
+                                            <input type="text" require required id="rythme" name="rythme" require value="<%=offre.rythme%>">
+                                            <span>Rythme de la mission</span>
+                                        </div>
+                                    </div>
+                                    <div class="buttons">
+                                        <button class="next_button" style="width: 30%">Étape suivante</button>
+                                    </div>
+                                </div>
+                                <div class="main">
+                                    <small><i class="fa fa-smile-o"></i></small>
+                                    <div class="text">
+                                        <h2>Localisation</h2>
+                                        <p>Localisation de la mission.</p>
+                                    </div>
+                                    <div id="map"></div>
+                                    <input type="hidden" name="loc_lat" id="loc_lat" value="<%=offre.lieu_mission_lat%>">
+                                    <input type="hidden" name="loc_long" id="loc_long" value="<%=offre.lieu_mission_long%>">
+
+                                    <!-- prettier-ignore -->
+                                    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+                                        ({key: "AIzaSyCMy-hj1vTMWe303mkUGIY9bnapDW3nsr0", v: "beta"});</script>
+                                    <div class="buttons button_space">
+                                        <button class="back_button" style="width: 30%">Retour en arrière</button>
+                                        <button class="next_button" style="width: 30%">Étape suivante</button>
+                                    </div>
+                                </div>
+                                <div class="main">
+                                    <small><i class="fa fa-smile-o"></i></small>
+                                    <div class="text">
+                                        <h2>Informations relatives à l'offre de travail</h2>
+                                        <p>Donner nous des informations spécifiques relatives à l'offre?</p>
+                                    </div>
+                                    <div class="input-text">
+                                        <div class="input-div">
+                                            <input type="text" require id="responsable" name="responsable"  value="<%=offre.responsable%>">
+                                            <span>Responsable hiérarchique</span>
+                                        </div>
+                                    </div>
+                                    <div class="input-text">
+                                        <div class="input-div">
+                                            <input type="text" require id="piece" name="piece"  value="<%=offre.pieces_demandes%>">
+                                            <span>Pièces demandées (Ex: CV + Lettre de motivation ..)</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-text">
+                                        <div class="input-div">
+                                            <input type="text" require id="salaire" name="salaire" value="<%=offre.salaire%>">
+                                            <span>Salaire Annuelle BRUT en €(Ex: 35 000)</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-text">
+                                        <div class="input-div">
+                                            <input type="date" require placeholder="dd-mm-yyyy" value="<%=(new Date(offre.date_validite)).toLocaleDateString()%>"
+                                                   min="2020-01-01" max="2030-12-31" name="date" id="date">
+                                            <span>Date de validité (JJ/MM/AAAA)</span>
+                                        </div>
+                                        <div class="input-div">
+                                            <input type="number" require name="nb_pieces" id="nb_pieces" value="<%=offre.nb_piece_demandes%>">
+                                            <span>Nombre de pièces demandées :</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="buttons button_space">
+                                        <button class="back_button" style="width: 30%">Retour en arrière</button>
+                                        <button class="submit_button" style="width: 30%">Éditer mon offre</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+            <% }%>
+        </div>
+    </div>
+    <p class="copyright">
+        &copy; 2023 - <span>SR10 - D.R</span> License <a href="https://github.com/DISIC/design.numerique.gouv.fr/blob/master/LICENSE.md#licence-ouverte-20open-licence-20" target="_blank">OPEN LICENCE 2.0</a>.
+    </p>
+</main>
+</body>
+</html>

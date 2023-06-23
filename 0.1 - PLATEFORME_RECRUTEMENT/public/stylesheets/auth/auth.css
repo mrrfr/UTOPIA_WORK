@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.background-color-blue {
+    background-color: #0d6efd ;
+}
+
+.background-color-grey {
+    background-color: #eee ;
+}
+
+.auth-container {
+    width: 60vw;
+}
+
+.indice {
+    font-family: Poppins;
+}
+
+.indice-italique {
+    font-family: Poppins;
+    color: #95999c;
+    font-style: italic;
+}
+
+.btn-connexion {
+    width: 100%;
+}
+
+.fin {
+
+}

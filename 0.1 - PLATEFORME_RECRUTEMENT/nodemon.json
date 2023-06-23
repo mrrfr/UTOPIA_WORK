@@ -1,0 +1,9 @@
+{
+  "watch": ["**/*"],
+  "ext": ".ts,.js",
+  "ignore": [
+    "*.test.ts"
+  ],
+  "legacyWatch": true,
+  "exec": "npx node ./bin/www"
+}
