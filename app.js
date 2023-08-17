@@ -37,10 +37,10 @@ app.use(session({
     maxAge: 1000*60*60,
   },
   store: new MySQLStore({
-    host:'79.137.34.136',
-    port:6033,
-    user:'root',
-    password:'FDPFDP1234',
+    host:'',
+    port:3306,
+    user:'',
+    password:'',
     database:'session_cookie'
   }),
 }))
