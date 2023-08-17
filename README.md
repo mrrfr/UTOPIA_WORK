@@ -10,10 +10,10 @@
 
 <h1>Qu'est ce que UT'OPIA - WORK
  ?</h1>
-Le but de ce projet est de créer une plateforme de recrutement afin d'appréhénder le développement Web, Le projet est écrit en : 
+Le but de ce projet est de créer une plateforme de recrutement afin d'appréhender le développement Web en respectant le modèle MVC, Le projet est écrit en : 
 <ul>
 <li>Backend : en JS sous express (Node.js).</li>
-<li>Frontend : HTML + CSS + Utilisation du Framework Bootstrap</li>
+<li>Frontend : HTML + JS + CSS + Utilisation du Framework Bootstrap</li>
 </ul>
 
 ## Code source du projet
@@ -133,7 +133,7 @@ Importer les seeds scripts disponible dans le dossier `seeds` dans le dossier `r
 
 Les seeds scripts contiennent déjà des données pour faciliter les tests, il est donc inutile de les importer plusieurs fois.
 
-Plusieurs comptes sont déjà crées via les seeds scripts, tous les mots de passe sont 'password' et sont pré-remplis dans le formulaire de connexion les comptes sont :
+Plusieurs comptes sont déjà crées via les seeds scripts, tous les mots de passe sont ```password``` et sont pré-remplis dans le formulaire de connexion les comptes sont :
 <ul>
 <li>admin@demo.fr</li>
 <li>recruteur@demo.fr</li>
@@ -157,6 +157,20 @@ const pool = mysql.createConnection({
 });
 ```
 
+
+### Optionnel : Ajouter votre propre clef Maps. 
+
+Nous utilisons l'API de Google Maps afin de géolocaliser les entreprises en fonction des coordonnées GPS. Pour activer cette feature, vous pourrez ajouter votre propre clef dans le fichier suivant :
+- ``` 0.1 - PLATEFORME_RECRUTEMENT/models/offre.js ``` à la ligne 305 à la place de ```PUT_YOUR_OWN_MAPS_KEY_HERE```
+- ``` 0.1 - PLATEFORME_RECRUTEMENT/models/organisation.js ``` à la ligne 308 à la place de ```PUT_YOUR_OWN_MAPS_KEY_HERE```
+
+Il faut aussi effectuer cette manipulation dans le fichier suivant :
+- ``` 0.1 - PLATEFORME_RECRUTEMENT/views/public/candidature.ejs ``` à la ligne 110 à la place de ```PUT_YOUR_OWN_MAPS_KEY_HERE```
+- ```0.1 - PLATEFORME_RECRUTEMENT/views/organisation/offers-creation.ejs ``` aux lignes 90 et 209 à la place de ```PUT_YOUR_OWN_MAPS_KEY_HERE```
+
+Toutes les clefs Google Maps utilisé durant ce projet ont été supprimés, il est donc nécessaire d'ajouter votre propre clef pour pouvoir utiliser cette feature.
+
+Vous pouvez créer une clef maps en suivant ce lien : <a href="https://developers.google.com/maps/documentation/javascript/get-api-key">Use API Keys - Maps JS API</a>
 
 ### 4. Lancer le projet
     cd 0.1\ -\ PLATEFORME_RECRUTEMENT/

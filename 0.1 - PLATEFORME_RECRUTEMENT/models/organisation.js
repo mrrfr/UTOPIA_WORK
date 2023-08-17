@@ -305,7 +305,7 @@ module.exports = {
             throw new Error("INVALID_DATA");
         }
 
-        let city_fetch = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${loc_lat},${loc_long}&sensor=false&key=AIzaSyCMy-hj1vTMWe303mkUGIY9bnapDW3nsr0`)
+        let city_fetch = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${loc_lat},${loc_long}&sensor=false&key=PUT_YOUR_OWN_MAPS_KEY_HERE`)
         let addresse = city_fetch.data.results[0]['formatted_address'];
 
         let sql_insert = 'INSERT INTO offres ' +
