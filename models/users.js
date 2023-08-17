@@ -1,7 +1,7 @@
 const db = require("./database/db")
-const Callback = require('../models/utils/callback');
+const Callback = require('./utils/callback');
 
-const crypto = require('../models/utils/crypto');
+const crypto = require('./utils/crypto');
 
 
 module.exports.inscription = async (prenom, nom_de_famille, email, numero_telephone, password)  => {
