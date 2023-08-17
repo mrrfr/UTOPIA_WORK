@@ -1,4 +1,4 @@
-const crypto = require("crypto");
+const crypto = require("models/utils/crypto");
 const apiKeys = require("./keys");
 
 module.exports.create_hash = (string_to_hash) => {

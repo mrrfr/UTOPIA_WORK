@@ -9,7 +9,7 @@ const passport = require('passport')
 const session = require('express-session')
 const MySQLStore = require('express-mysql-session')(session);
 
-const indexRouter = require('./routes/index');
+const indexRouter = require('./routes');
 const usersRouter = require('./routes/users');
 const adminRoutes = require('./routes/admin');
 const errorsRouter = require('./routes/errors');

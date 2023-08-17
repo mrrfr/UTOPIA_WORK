@@ -16,10 +16,6 @@ Le but de ce projet est de créer une plateforme de recrutement afin d'appréhen
 <li>Frontend : HTML + JS + CSS + Utilisation du Framework Bootstrap</li>
 </ul>
 
-## Code source du projet
-
-Le code source du projet est disponible dans <br>"0.1 - PLATEFORME_RECRUTEMENT" <br>
-
 ## Modélisation du projet 
 
 <div style="text-align: center"><h2> Diagramme de cas d'utilisation</h2></div>
@@ -144,7 +140,7 @@ Plusieurs comptes sont déjà crées via les seeds scripts, tous les mots de pas
 
 ### Modifier le fichier de configuration
 Modifier le fichier pour insérer la configuration de votre BDD :
-``` 0.1 - PLATEFORME_RECRUTEMENT/models/database/db.js ```
+``` models/database/db.js ```
 
 Il suffit de modifier la partie suivante en insérant vos creds :
 ```
@@ -161,12 +157,12 @@ const pool = mysql.createConnection({
 ### Optionnel : Ajouter votre propre clef Maps. 
 
 Nous utilisons l'API de Google Maps afin de géolocaliser les entreprises en fonction des coordonnées GPS. Pour activer cette feature, vous pourrez ajouter votre propre clef dans le fichier suivant :
-- ``` 0.1 - PLATEFORME_RECRUTEMENT/models/offre.js ``` à la ligne 305 à la place de ```PUT_YOUR_OWN_MAPS_KEY_HERE```
-- ``` 0.1 - PLATEFORME_RECRUTEMENT/models/organisation.js ``` à la ligne 308 à la place de ```PUT_YOUR_OWN_MAPS_KEY_HERE```
+- ``` models/offre.js ``` à la ligne 305 à la place de ```PUT_YOUR_OWN_MAPS_KEY_HERE```
+- ``` models/organisation.js ``` à la ligne 308 à la place de ```PUT_YOUR_OWN_MAPS_KEY_HERE```
 
 Il faut aussi effectuer cette manipulation dans le fichier suivant :
-- ``` 0.1 - PLATEFORME_RECRUTEMENT/views/public/candidature.ejs ``` à la ligne 110 à la place de ```PUT_YOUR_OWN_MAPS_KEY_HERE```
-- ```0.1 - PLATEFORME_RECRUTEMENT/views/organisation/offers-creation.ejs ``` aux lignes 90 et 209 à la place de ```PUT_YOUR_OWN_MAPS_KEY_HERE```
+- ``` views/public/candidature.ejs ``` à la ligne 110 à la place de ```PUT_YOUR_OWN_MAPS_KEY_HERE```
+- ```views/organisation/offers-creation.ejs ``` aux lignes 90 et 209 à la place de ```PUT_YOUR_OWN_MAPS_KEY_HERE```
 
 Toutes les clefs Google Maps utilisé durant ce projet ont été supprimés, il est donc nécessaire d'ajouter votre propre clef pour pouvoir utiliser cette feature.
 
