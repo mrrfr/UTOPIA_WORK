@@ -143,7 +143,7 @@ Modifier le fichier pour insérer la configuration de votre BDD :
 ``` models/database/db.js ```
 
 Il suffit de modifier la partie suivante en insérant vos creds :
-```
+``` Javascript
 const pool = mysql.createConnection({
     host: "",
     user: "SR10",
@@ -153,6 +153,16 @@ const pool = mysql.createConnection({
 });
 ```
 
+Créer les creds pour le SQL Cookie Store dans le fichier app.js, pour ce faire il suffit de mettre les creds SQL à la ligne 39.
+``` JavaScript
+store: new MySQLStore({
+    host:'',
+    port:3306,
+    user:'',
+    password:'',
+    database:'session_cookie'
+  }),
+```
 
 ### Optionnel : Ajouter votre propre clef Maps. 
 
